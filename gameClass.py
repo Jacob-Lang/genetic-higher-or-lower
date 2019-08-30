@@ -38,18 +38,23 @@ class Player():
             guess = int(lower_bound)
             self.guesses.append(guess)
             return guess
-        elif type(self.method) != str:    
-            # e.g. [0.25, 0.5] guesses 1/4 between first set of bounds then 1/2.
-            # then quits
-            nguesses = len(self.guesses)  # number of guesses made so far
-            if nguesses < len(self.method): # does method have any guesses left?
-                ri = self.method[nguesses]  # current split ratio
-                guess = int(round(lower_bound + ri*(upper_bound - lower_bound)))
-                self.guesses.append(guess)  
-                return guess
-            elif nguesses == len(self.method): # if not ...
-                self.quit = "True"
-                return "QUIT"   # forces game to quit
+        elif self.method != str:
+            ri = self.method
+            guess = int(round(lower_bound + ri*(upper_bound - lower_bound)))
+            self.guesses.append(guess)  
+            return guess
+#        #elif type(self.method) != str:    
+#            # e.g. [0.25, 0.5] guesses 1/4 between first set of bounds then 1/2.
+#            # then quits
+#            nguesses = len(self.guesses)  # number of guesses made so far
+#            if nguesses < len(self.method): # does method have any guesses left?
+#                ri = self.method[nguesses]  # current split ratio
+#                guess = int(round(lower_bound + ri*(upper_bound - lower_bound)))
+#                self.guesses.append(guess)  
+#                return guess
+#            elif nguesses == len(self.method): # if not ...
+#                self.quit = "True"
+#                return "QUIT"   # forces game to quit
                 
 class Game():
     """This is a class that represents the game"""
@@ -102,18 +107,23 @@ class Game():
             guess = int(lower_bound)
             self.guesses.append(guess)
             return guess
-        elif type(self.method) != str:    
-            # e.g. [0.25, 0.5] guesses 1/4 between first set of bounds then 1/2.
-            # then quits
-            nguesses = len(self.guesses)  # number of guesses made so far
-            if nguesses < len(self.method): # does method have any guesses left?
-                ri = self.method[nguesses]  # current split ratio
-                guess = int(round(lower_bound + ri*(upper_bound - lower_bound)))
-                self.guesses.append(guess)  
-                return guess
-            elif nguesses == len(self.method): # if not ...
-                self.quit = "True"
-                return "QUIT"   # forces game to quit
+        elif type(self.method) != str:
+            ri = self.method
+            guess = int(round(lower_bound + ri*(upper_bound - lower_bound)))
+            self.guesses.append(guess)  
+            return guess
+#        elif type(self.method) != str:    
+#            # e.g. [0.25, 0.5] guesses 1/4 between first set of bounds then 1/2.
+#            # then quits
+#            nguesses = len(self.guesses)  # number of guesses made so far
+#            if nguesses < len(self.method): # does method have any guesses left?
+#                ri = self.method[nguesses]  # current split ratio
+#                guess = int(round(lower_bound + ri*(upper_bound - lower_bound)))
+#                self.guesses.append(guess)  
+#                return guess
+#            elif nguesses == len(self.method): # if not ...
+#                self.quit = "True"
+#                return "QUIT"   # forces game to quit
             
     def narrateProgress(self, guess): # prints the result of the guess. can also be neglected. 
         if type(guess) == str:
